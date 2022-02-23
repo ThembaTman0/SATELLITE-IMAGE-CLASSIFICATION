@@ -1,14 +1,16 @@
 # SATELLITE-IMAGE-CLASSIFICATION
 
-## Sudoku Solver:<br />
-
-https://user-images.githubusercontent.com/47954702/149379785-f2f1ab69-315d-4e25-8f0a-d6363bc821fd.mp4 
-
-## REQUIRED LIBRARIES:<br />
-
-PyAutoGUI lets your Python scripts control the mouse and keyboard to automate interactions with other applications. The API is designed to be simple. PyAutoGUI works on Windows, macOS, and Linux, and runs on Python 2 and 3. For more info click [here](https://pyautogui.readthedocs.io/en/latest/).<br />
-
-To install with pip, run 
+• Advancements in remote sensing techniques provide crucial information for a
+variety of applications, including landscape changes, land cover categorization, enhanced weather forecasting, and climate observation. These satellite
+devices can detect hazardous or dangerous conditions without endangering
+people or equipment.
+• With the recent breakthroughs that have made satellites both more powerful and cheaper to deploy, the volume of high-resolution satellite images collected has increased exponentially. Manual classification techniques of these
+high-resolution satellite images are too inaccurate and inefficient to handle
+the challenge. Hence, automation of satellite image classification has become a crucial part of the field of remote sensing.
+• The main objective of the research paper is to create an efficient, and reliable
+autonomous classification models using the bag of features method on the
+UC Merced landuse dataset, and improve the accuracy and overall effectiveness of the algorithm proposed by [2] mainly for object recognition in satellite
+imagery
 ```
 pip install pyautogui
 ```
