@@ -1,6 +1,6 @@
 # SATELLITE-IMAGE-CLASSIFICATION
 ![](img/google-earth-view-7023.jpg?raw=true "")
-This image is accuired from [Earth View By google maps](https://earthview.withgoogle.com/)
+This image is acquire from [Earth View By google maps](https://earthview.withgoogle.com/)
 </br> </br> 
 Advancements in remote sensing techniques provide crucial information for a
 variety of applications, including landscape changes, land cover categorization, enhanced weather forecasting, and climate observation. These satellite
@@ -22,6 +22,9 @@ KNN  |  68.02%
 Linear Classifier  | 76.19%
 HOG only  | 36.73%
 DAISY only |  73.40%
-
+## Confusion Matrix:
+![](img/google-earth-view-7023.jpg?raw=true "")
+![](img/google-earth-view-7023.jpg?raw=true "")
+![](img/google-earth-view-7023.jpg?raw=true "")
 
 
