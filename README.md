@@ -13,8 +13,13 @@ UC Merced landuse dataset, and improve the accuracy and overall effectiveness of
 imagery
 
 ## Models and Accuracy:
-Hybrid Classifier 81.42%
-KNN 68.02%
-Linear Classifier 76.19%
-HOG only 36.73%
-DAISY only 73.40%
+Models  | Accuracy
+------------- | -------------
+Hybrid Classifier  |  81.42%
+KNN  |  68.02%
+Linear Classifier  | 76.19%
+HOG only  | 36.73%
+DAISY only |  73.40%
+
+
+
