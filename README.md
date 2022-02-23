@@ -9,7 +9,7 @@ the challenge. Hence, automation of satellite image classification has become a 
 </br> </br> 
 The main objective of the research paper is to create an efficient, and reliable
 autonomous classification models using the bag of features method on the
-UC Merced landuse dataset, and improve the accuracy and overall effectiveness of the algorithm proposed by [2](https://arxiv.org/abs/1702.06850) mainly for object recognition in satellite
+UC Merced landuse dataset, and improve the accuracy and overall effectiveness of the algorithm proposed by [[2]](https://arxiv.org/abs/1702.06850) mainly for object recognition in satellite
 imagery
 ```
 pip install pyautogui
