@@ -24,12 +24,15 @@ HOG only  | 36.73%
 DAISY only |  73.40%
 ## Confusion Matrix:
 Daisy Classifier
+</br> </br> 
 ![](img/Daisy-Classifier.png?raw=true "")
 </br> </br> 
 Hybrid Classifier
+</br> </br> 
 ![](img/Hybrid-Classifier.png?raw=true "")
 </br> </br> 
 Linear Classifier
+</br> </br> 
 ![](img/Linear-Classifier.png?raw=true "")
 
 
