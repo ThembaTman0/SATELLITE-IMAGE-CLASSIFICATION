@@ -23,8 +23,8 @@ Linear Classifier  | 76.19%
 HOG only  | 36.73%
 DAISY only |  73.40%
 ## Confusion Matrix:
-![](img/google-earth-view-7023.jpg?raw=true "")
-![](img/google-earth-view-7023.jpg?raw=true "")
-![](img/google-earth-view-7023.jpg?raw=true "")
+![](img/Daisy Only Classifier Mertics.png?raw=true "")
+![](img/Hybrid Classifier Mertics.png?raw=true "")
+![](img/Linear Classifier.png?raw=true "")
 
 
