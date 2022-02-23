@@ -1,5 +1,6 @@
 # SATELLITE-IMAGE-CLASSIFICATION
-![[Earth View By google maps](https://earthview.withgoogle.com/)](img/google-earth-view-7023.jpg?raw=true "")
+![](img/google-earth-view-7023.jpg?raw=true "")
+This image is accuired from [Earth View By google maps](https://earthview.withgoogle.com/)
 Advancements in remote sensing techniques provide crucial information for a
 variety of applications, including landscape changes, land cover categorization, enhanced weather forecasting, and climate observation. These satellite
 devices can detect hazardous or dangerous conditions without endangering
