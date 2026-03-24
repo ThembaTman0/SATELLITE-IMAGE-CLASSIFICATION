@@ -9,7 +9,7 @@
 [![IEEE](https://img.shields.io/badge/IEEE-Published-00629B?style=flat&logo=ieee&logoColor=white)](https://ieeexplore.ieee.org/abstract/document/9988636)
 [![University](https://img.shields.io/badge/Wits-Computer_Science-003DA5?style=flat)](https://www.wits.ac.za/)
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Research](https://img.shields.io/badge/Dataset-UC_Merced_Land_Use-4CAF50?style=flat)](http://weegee.vision.ucmermerced.edu/datasets/landuse.html)
+[![Dataset](https://img.shields.io/badge/Dataset-UC_Merced_Land_Use-4CAF50?style=flat)](http://weegee.vision.ucmerced.edu/datasets/landuse.html)
 
 **Themba Ngobeni** | School of Computer Science and Applied Mathematics | University of the Witwatersrand, Johannesburg
 
@@ -19,62 +19,72 @@ Published on IEEE Xplore: [View Paper](https://ieeexplore.ieee.org/abstract/docu
 
 ---
 
-## Overview
+## Abstract
 
-This repository contains the implementation and results from an Honours research project focused on automating satellite image classification using classical computer vision techniques.
+Advancements in remote sensing techniques provide crucial information for a variety of applications, including landscape changes, land cover categorization, enhanced weather forecasting, and climate observation. With the recent breakthroughs that have made satellites both more powerful and cheaper to deploy, the volume of high-resolution satellite images collected has increased exponentially. Manual classification techniques of these high-resolution satellite images are too inaccurate and inefficient to handle the challenge. Hence, automation of satellite image classification has become a crucial part of the field of remote sensing.
 
-The volume of high-resolution satellite imagery collected globally has grown exponentially due to cheaper and more powerful satellite hardware. Manual classification at this scale is both inaccurate and unsustainable. This research investigates efficient, reliable autonomous classification using the **Bag of Features (BOF)** method on the UC Merced Land Use dataset.
+The major purpose of this work is to evaluate the ability of a feature extraction model to identify satellite pictures utilizing different approaches. This study presents actual data demonstrating that the Bag of Feature (BoF) approach outperforms conventional feature extraction algorithms for multilabel scene classification.
 
-The primary goal was to build on the approach proposed by [Wilson and Arif (2017)](https://arxiv.org/abs/1702.06850) and improve classification accuracy for satellite object recognition using the DAISY feature descriptor combined with an SVM classifier.
+We employ local feature descriptors such as DAISY features for local feature extraction and classification, and global feature descriptors such as the histogram of oriented gradients (HOG) for global feature extraction and classification, using the Bag of Features technique. The bag of feature encoding is augmented by the Mini-Batch K-Means method to decrease the complications of the feature encoding technique. A method for pooling is applied to combine DAISY and HOG data relevant to each image. Finally, we perform a 10-fold cross-validation experiment with a support vector machine (SVM) classifier and classify our results on a dataset of 21 scene categories.
+
+The hybrid model attained an accuracy of 81.76% and the KNN model attained an accuracy of 67.14%. The study demonstrates how this categorization method may be used to identify changes in land use and land cover, as well as aid in the improvement of satellite classification.
 
 ---
 
-## Research Methodology
+## Methodology
 
 The classification pipeline follows four stages:
 
 ```
-Raw Image -> Feature Extraction -> Encoding -> Pooling -> Classification
-               (DAISY)          (Mini-Batch    (L2)       (SVM)
-                                  K-Means)
+Raw Image -> Feature Extraction -> Encoding      -> Pooling -> Classification
+             DAISY (local)        Mini-Batch        L2         SVM
+             HOG   (global)       K-Means
 ```
 
-**Feature Extraction:** DAISY dense descriptors were used in place of HOG to capture local image structure more effectively across the 21 scene categories in the dataset.
+**Feature Extraction**
 
-**Encoding:** Bag of Features encoding via Mini-Batch K-Means clustering.
+Two complementary descriptors were used:
+- DAISY for local feature extraction, capturing fine-grained structural detail across image patches
+- HOG for global feature extraction, capturing the overall gradient orientation across each image
 
-**Pooling:** L2 pooling to produce fixed-length feature vectors regardless of image size.
+**Encoding**
 
-**Classification:** A 10-fold cross-validation experiment was run using Support Vector Machine classifiers with multiple kernel configurations.
+Bag of Features encoding via Mini-Batch K-Means clustering to reduce the complexity of the feature encoding step.
 
-HOG was also evaluated as a standalone feature extractor and proved unviable for this task, achieving only 36.73% accuracy.
+**Pooling**
+
+L2 pooling to combine DAISY and HOG data into a fixed-length feature vector per image.
+
+**Classification**
+
+A 10-fold cross-validation experiment using Support Vector Machine classifiers across 21 scene categories from the UC Merced Land Use dataset.
 
 ---
 
 ## Results
 
-The **Hybrid SVM classifier with an RBF kernel** was the best performing model, outperforming all other classifiers tested.
+The HOG classifier proved to be an unviable approach for this classification task on its own. The hybrid model combining SVM with an RBF kernel was the most effective, with the linear classifier coming in second place.
 
-| Classifier        | Accuracy |
-|-------------------|----------|
-| Hybrid (SVM + RBF)| 81.42%   |
-| Linear Classifier | 76.19%   |
-| DAISY only        | 73.40%   |
-| KNN               | 68.02%   |
-| HOG only          | 36.73%   |
+| Classifier         | Accuracy |
+|--------------------|----------|
+| Hybrid (SVM + RBF) | 81.42%   |
+| Linear Classifier  | 76.19%   |
+| DAISY only         | 73.40%   |
+| KNN                | 68.02%   |
+| HOG only           | 36.73%   |
 
 **Comparison against prior work on the UC Merced dataset:**
 
-| Method               | Year | Accuracy |
-|----------------------|------|----------|
-| BOVW + SCK           | 2010 | 77.71%   |
-| Dirichlet            | 2013 | 92.80%   |
-| VLAD                 | 2014 | 94.30%   |
-| DCNN + SIFT BOVW     | 2018 | 95.00%   |
-| Inception-v3-CapsNet | 2020 | 80.00%   |
-| This work (SVM + RBF)| 2022 | 81.42%   |
+| Method                | Year | Accuracy |
+|-----------------------|------|----------|
+| BOVW + SCK            | 2010 | 77.71%   |
+| Dirichlet             | 2013 | 92.80%   |
+| VLAD                  | 2014 | 94.30%   |
+| DCNN + SIFT BOVW      | 2018 | 95.00%   |
+| Inception-v3-CapsNet  | 2020 | 80.00%   |
+| This work (SVM + RBF) | 2022 | 81.42%   |
 
-The results are competitive with other non-deep-learning methods and outperform the Inception-v3-CapsNet approach, which is notable given the limited dataset size (21 classes) that makes deep learning approaches less suitable.
+The hybrid model outperforms the Inception-v3-CapsNet deep learning approach while using a classical pipeline, which is notable given the dataset constraints that make deep learning less suitable at this scale.
 
 ---
 
@@ -97,20 +107,21 @@ The results are competitive with other non-deep-learning methods and outperform 
 ## Key Findings
 
 - HOG alone is not a viable feature extractor for satellite image classification at this scale, scoring only 36.73%.
-- The DAISY descriptor combined with Bag of Features encoding and an SVM with an RBF kernel produces the most accurate results.
-- The UC Merced dataset, while widely used, is constrained to 21 scene classes. This limits how well models generalise to the full diversity of real-world satellite imagery.
-- CNN-based approaches were intentionally excluded due to the limited dataset size. Data-hungry models underperform on small datasets compared to well-tuned classical approaches.
+- The DAISY descriptor captures local image structure more effectively than HOG for this task.
+- Combining both descriptors in a hybrid model with an SVM RBF kernel produces the best result at 81.42%.
+- CNN-based approaches were excluded because the UC Merced dataset, with only 21 scene classes and limited samples per class, is too small for data-hungry deep learning models to outperform well-tuned classical pipelines.
+- The results show that the Bag of Features method is a viable and competitive approach for multilabel satellite scene classification without requiring deep learning infrastructure.
 
 ---
 
 ## Limitations and Future Work
 
-The UC Merced Land Use dataset is one of the most widely used benchmarks in this domain but contains only 21 scene categories, which is a small number relative to the variety of classes encountered in real-world remote sensing applications.
+The UC Merced Land Use dataset contains only 21 scene categories, which is small relative to the diversity of classes encountered in real-world remote sensing. This constrains how well models trained on it generalise to unseen terrain types.
 
 Planned future directions include:
 
-- Applying convolutional neural networks on a larger dataset with significantly more scene classes
-- Exploring transfer learning to overcome the data size constraint
+- Applying convolutional neural networks on a larger dataset with more scene classes
+- Exploring transfer learning to overcome the data size constraint and leverage pre-trained visual features
 - Evaluating performance on more recent high-resolution satellite datasets
 
 ---
@@ -127,6 +138,6 @@ Planned future directions include:
 
 **Themba Ngobeni** | University of the Witwatersrand | School of Computer Science and Applied Mathematics
 
-[![IEEE Paper](https://img.shields.io/badge/Read_the_Paper-IEEE_Xplore-00629B?style=flat&logo=ieee&logoColor=white)](https://ieeexplore.ieee.org/abstract/document/9988636)
+[![Read the Paper](https://img.shields.io/badge/Read_the_Paper-IEEE_Xplore-00629B?style=flat&logo=ieee&logoColor=white)](https://ieeexplore.ieee.org/abstract/document/9988636)
 
 </div>
